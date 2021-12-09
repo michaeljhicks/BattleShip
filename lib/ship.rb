@@ -1,1 +1,18 @@
-require ',/lib/ship'
+
+
+
+
+
+
+def length
+
+end
+
+
+def sunk?
+
+end
+
+def hit
+
+end
