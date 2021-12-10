@@ -51,7 +51,7 @@ RSpec.describe Cell do
           expect(cell.fired_upon?).to be(false)
         end
 
-        xit 'can lower ship health' do
+        it 'can lower ship health' do
           cell = Cell.new("B4")
           cruiser = Ship.new("Cruiser", 3)
 
