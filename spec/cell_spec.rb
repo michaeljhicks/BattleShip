@@ -11,7 +11,7 @@ RSpec.describe Cell do
 
         expect(cell).to be_a(Cell)
       end
-      xit 'has cordinates' do
+      it 'has cordinates' do
 
         expect(cell.coordinate).to eq("B4")
       end
