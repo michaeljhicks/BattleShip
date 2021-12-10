@@ -40,7 +40,7 @@ RSpec.describe Cell do
           expect(cell.fired_upon?).to eq(false)
         end
 
-        xit 'can be fired upon' do
+        it 'can be fired upon' do
           cell = Cell.new("B4")
           cruiser = Ship.new("Cruiser", 3)
 
