@@ -100,13 +100,14 @@ RSpec.describe Cell do
             cell_2.fire_upon
             expect(cell_2.render).to eq("H")
           end
+
           it 'cruiser sunk' do
             cell_1 = Cell.new("B4")
             cell_2 = Cell.new("C3")
             cruiser = Ship.new("Cruiser", 3)
             cell_2.place_ship(cruiser)
             cell_2.fire_upon
-            expect(cell_2.render).to eq("H")
+            expect(cruiser.sunk?).to eq(false)
           end
 
 
