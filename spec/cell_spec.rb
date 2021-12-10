@@ -1,6 +1,6 @@
 require './lib/ship'
 require './lib/cell'
- 
+
 RSpec.describe Cell do
   context 'Iteration I Cell' do
 
@@ -31,7 +31,7 @@ RSpec.describe Cell do
 
         cell.place_ship(cruiser)
         expect(cell.empty?).to eq(false)
-        expect(cell.ship).to eq(cruiser)
+         expect(cell.ship).to eq(cruiser)
       end
 
     describe '#fire_upon and #fired_upon?' do
@@ -40,15 +40,28 @@ RSpec.describe Cell do
           expect(cell.fired_upon?).to eq(false)
         end
 
-        it 'can be fired upon and lower ship health' do
+        it 'can be fired upon' do
           cell = Cell.new("B4")
           cruiser = Ship.new("Cruiser", 3)
 
           cell.place_ship(cruiser)
+          # require 'pry' ; binding.pry
+
+
+          expect(cell.fired_upon?).to be(false)
+        end
+
+        it 'can lower ship health' do
+          cell = Cell.new("B4")
+          cruiser = Ship.new("Cruiser", 3)
+
+          cell.place_ship(cruiser)
+          # require 'pry' ; binding.pry
 
           cell.fire_upon
-          expect(cell.fired_upon?).to be(true)
+
           expect(cell.ship.health).to be(2)
+          expect(cell.fired_upon?).to be(true)
         end
       end
     end
