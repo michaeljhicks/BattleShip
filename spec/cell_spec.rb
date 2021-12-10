@@ -35,7 +35,7 @@ RSpec.describe Cell do
       end
 
     describe '#fire_upon and #fired_upon?' do
-        xit 'defaults non-fired upon...' do
+        it 'defaults non-fired upon...' do
           cell = Cell.new("B4")
           expect(cell.fired_upon?).to eq(false)
         end
