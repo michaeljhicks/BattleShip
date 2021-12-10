@@ -21,7 +21,7 @@ RSpec.describe Cell do
         expect(cell.ship).to eq(nil)
       end
 
-      xit 'is an empty cell' do
+      it 'is an empty cell' do
 
       expect(cell.empty?).to eq(true)
       end
