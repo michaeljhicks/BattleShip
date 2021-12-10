@@ -1,31 +1,35 @@
+class Cell
+  attr_reader :coordinate,
+              :ship,
+              :fired_upon
 
+  def initialize(coordinate)
+    @coordinate = coordinate
+    @ship = nil
+    @empty = true
+    @fired_upon = false
+  end
 
+  def empty?
+    if @ship == nil
+      true
+    else
+      false
+    end
+  end
 
-def empty
+  def place_ship(ship)
+    @ship = ship
+  end
 
+  def fired_upon?
+    @fired_upon
+  end
+
+  def fire_upon
+    if empty? == false
+      @ship.hit
+    end
+    @fired_upon = true
+  end
 end
-
-def place_ship(ship)
-
-end
-
-def fired_upon?
-
-end
-
-def fire_upon
-
-end
-pry(main)> cruiser = Ship.new("Cruiser", 3)
-#=> #<Ship:0x00007feb05112d10...>
-
-pry(main)> cruiser.name
-#=> "Cruiser"
-
-pry(main)> cruiser.length
-#=> 3
-
-pry(main)> cruiser.health
-#=> 3
-
-pry(main)> cruiser.sunk?
