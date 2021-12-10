@@ -1,6 +1,6 @@
 require './lib/ship'
 require './lib/cell'
-
+ 
 RSpec.describe Cell do
   context 'Iteration I Cell' do
 
@@ -53,4 +53,4 @@ RSpec.describe Cell do
       end
     end
   end
-end 
+end

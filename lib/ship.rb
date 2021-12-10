@@ -1,18 +1,32 @@
+# require './lib/ship'
+require 'pry'
+
+class Ship
+  attr_reader :name,
+              :length,
+              :health
+
+  def initialize(name, length)
+    @name = name
+    @length = length
+    @health = length
+  end
 
 
 
 
 
+  def length
 
-def length
-
-end
+  end
 
 
-def sunk?
+  def sunk?
 
-end
+  end
 
-def hit
+  def hit
+
+  end
 
 end

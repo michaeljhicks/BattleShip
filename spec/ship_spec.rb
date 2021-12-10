@@ -6,32 +6,32 @@ RSpec.describe Ship do
     let(:cruiser) {Ship.new("Cruiser", 3)}
 
     describe 'Iteration I' do
-      it 'exist' do
+      it 'exist' do #green
 
         expect(cruiser).to be_a(Ship)
       end
 
-      it 'has a name' do
+      it 'has a name' do #green
 
         expect(cruiser.name).to eq("Cruiser")
       end
 
-      it 'has a length' do
+      it 'has a length' do #RED
 
         expect(cruiser.length).to eq(3)
       end
 
-      it 'has health' do
+      it 'has health' do #green
 
         expect(cruiser.health).to eq(3)
       end
 
-      it 'is sunk?' do
+      xit 'is sunk?' do
 
         expect(cruiser.sunk?).to eq(false)
       end
 
-      it 'losses health' do
+      xit 'losses health' do
 
         cruiser.hit
         expect(cruiser.health).to eq(2)
