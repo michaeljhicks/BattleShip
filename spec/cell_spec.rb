@@ -64,6 +64,55 @@ RSpec.describe Cell do
           expect(cell.fired_upon?).to be(true)
         end
       end
+
+      describe '#hits and misses' do
+          it 'can render a cell' do
+            cell_1 = Cell.new("B4")
+            expect(cell_1).to be_a(Cell)
+          end
+
+          it 'cell has not been fired upon' do
+            cell_1 = Cell.new("B4")
+
+            expect(cell_1.render).to eq(".")
+          end
+
+          it 'can render a miss' do
+            cell_1 = Cell.new("B4")
+            cell_1.fire_upon
+            expect(cell_1.render).to eq("M")
+          end
+
+          xit 'can render a miss' do  #RED
+            cell_1 = Cell.new("B4")
+            cell_2 = Cell.new("C3")
+            cruiser = Ship.new("Cruiser", 3)
+            cell_2.place_ship(cruiser)
+            expect(cell_2.render).to eq(".")
+            expect(cell_2.render(true)).to eq("S")
+          end
+
+          it 'can render a hit' do
+            cell_1 = Cell.new("B4")
+            cell_2 = Cell.new("C3")
+            cruiser = Ship.new("Cruiser", 3)
+            cell_2.place_ship(cruiser)
+            cell_2.fire_upon
+            expect(cell_2.render).to eq("H")
+          end
+          it 'cruiser sunk' do
+            cell_1 = Cell.new("B4")
+            cell_2 = Cell.new("C3")
+            cruiser = Ship.new("Cruiser", 3)
+            cell_2.place_ship(cruiser)
+            cell_2.fire_upon
+            expect(cell_2.render).to eq("H")
+          end
+
+
+
+        end
+
     end
   end
 end

@@ -8,7 +8,7 @@ class Cell
     @ship = nil
     @empty = true
     @fired_upon = false
-  end
+    end
 
   def empty?
     if @ship == nil
@@ -31,5 +31,16 @@ class Cell
       @ship.hit
     end
     @fired_upon = true
+  end
+
+  def render
+    if empty? == false && @fired_upon == true
+      "H"
+    elsif @fired_upon == true && empty? == true
+      "M"
+    # elsif
+    else
+      "."
+    end
   end
 end
