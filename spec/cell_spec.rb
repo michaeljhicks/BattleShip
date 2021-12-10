@@ -16,7 +16,7 @@ RSpec.describe Cell do
         expect(cell.coordinate).to eq("B4")
       end
 
-      xit 'has a ship' do
+      it 'has a ship' do
 
         expect(cell.ship).to eq(nil)
       end
