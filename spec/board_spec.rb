@@ -20,7 +20,7 @@ RSpec.describe Board do
         expect(board.cells).to be_a(Hash)
       end
 
-      xit 'has valid coordinates' do
+      it 'has valid coordinates' do
 
         expect(board.valid_coordinate?("A1")).to eq(true)
         expect(board.valid_coordinate?("D4")).to eq(true)
