@@ -280,20 +280,20 @@ pry(main)> board.valid_placement?(submarine, ["C1", "B1"])....x
   *****Finally, coordinates can’t be diagonal:******
 
 ```ruby
-pry(main)> board.valid_placement?(cruiser, ["A1", "B2", "C3"])
+pry(main)> board.valid_placement?(cruiser, ["A1", "B2", "C3"]).....x
 # => false
 
-pry(main)> board.valid_placement?(submarine, ["C2", "D3"])
+pry(main)> board.valid_placement?(submarine, ["C2", "D3"]).....x
 # => false
 ```
 
   If all the previous checks pass then the placement should be valid:
 
 ```ruby
-pry(main)> board.valid_placement?(submarine, ["A1", "A2"])
+pry(main)> board.valid_placement?(submarine, ["A1", "A2"]).....x
 # => true
 
-pry(main)> board.valid_placement?(cruiser, ["B1", "C1", "D1"])
+pry(main)> board.valid_placement?(cruiser, ["B1", "C1", "D1"]).....x
 # => true
 ```
 
@@ -368,21 +368,21 @@ pry(main)> require './lib/board'
 pry(main)> require './lib/ship'
 # => true
 
-pry(main)> board = Board.new
+pry(main)> board = Board.new....x
 # => #<Board:0x00007fcb0e1f6720...>
 
-pry(main)> cruiser = Ship.new("Cruiser", 3)    
+pry(main)> cruiser = Ship.new("Cruiser", 3)....x    
 # => #<Ship:0x00007fcb0e1ffa28...>
 
-pry(main)> board.place(cruiser, ["A1", "A2", "A3"])    
+pry(main)> board.place(cruiser, ["A1", "A2", "A3"])....x    
 
-pry(main)> cell_1 = board.cells["A1"]    
+pry(main)> cell_1 = board.cells["A1"].....x    
 # => #<Cell:0x00007fcb0e1f66a8...>
 
-pry(main)> cell_2 = board.cells["A2"]
+pry(main)> cell_2 = board.cells["A2"].....x
 # => #<Cell:0x00007fcb0e1f6630...>
 
-pry(main)> cell_3 = board.cells["A3"]    
+pry(main)> cell_3 = board.cells["A3"].....x    
 # => #<Cell:0x00007fcb0e1f65b8...>
 
 pry(main)> cell_1.ship
@@ -419,7 +419,7 @@ pry(main)> board.place(cruiser, ["A1", "A2", "A3"])
 pry(main)> submarine = Ship.new("Submarine", 2)    
 # => #<Ship:0x00007fcb0dace9c0...>
 
-pry(main)> board.valid_placement?(submarine, ["A1", "B1"])
+pry(main)> board.valid_placement?(submarine, ["A1", "B1"])....x
 # => false
 ```
 
