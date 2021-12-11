@@ -144,7 +144,7 @@ pry(main)> cell_2.render...X
 # => "."
 
 # Indicate that we want to show a ship with the optional argument
-pry(main)> cell_2.render(true)
+pry(main)> cell_2.render(true)...X
 # => "S"
 
 pry(main)> cell_2.fire_upon...X
