@@ -82,12 +82,12 @@ RSpec.describe Board do
 
     describe "coordinates are valid!" do #RED
 
-      xit "submarine valid placement" do #RED
+      it "submarine valid placement" do #RED
 
         expect(board.valid_placement?(submarine, ["A1", "A2"])).to eq(true)
       end
 
-      xit "cruiser valid placement" do #RED
+      it "cruiser valid placement" do #RED
 
         expect(board.valid_placement?(cruiser, ["B1", "C1", "D1"])).to eq(true)
       end
