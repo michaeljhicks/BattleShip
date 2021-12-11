@@ -15,7 +15,7 @@ RSpec.describe Board do
         expect(board).to be_a(Board)
       end
 
-      it 'has cells' do
+      xit 'has cells' do
 
         expect(board.cells).to be_a(Hash)
       end
@@ -29,34 +29,34 @@ RSpec.describe Board do
         expect(board.valid_coordinate?("A22")).to eq(false)
       end
 
-      it 'cruiser has valid placement' do
+      xit 'cruiser has valid placement' do
 
-        expect(board.valid_placement?(cruiser, ["A1", "A2"])). to eq(false)
+        expect(board.valid_placement?(cruiser, ["A1", "A2"])).to eq(false)
       end
 
-      it 'submarine has valid placement' do
+      xit 'submarine has valid placement' do
 
-        expect(board.valid_placement?(submarine, ["A2", "A3", "A4"]). to eq(false)
+        expect(board.valid_placement?(submarine, ["A2", "A3", "A4"])).to eq(false)
       end
 
-      it 'cruiser has consecutive coordinates I' do
+      xit 'cruiser has consecutive coordinates I' do
 
-        expect(board.valid_placement?(cruiser, ["A1", "A2", "A4"]). to eq(false)
+        expect(board.valid_placement?(cruiser, ["A1", "A2", "A4"])).to eq(false)
       end
 
-      it 'submarine has consecutive coordinates I' do
+      xit 'submarine has consecutive coordinates I' do
 
-        expect(board.valid_placement?(submarine, ["A1", "C1"]). to eq(false)
+        expect(board.valid_placement?(submarine, ["A1", "C1"])).to eq(false)
       end
 
-      it 'cruiser has consecutive coordinates II' do
+      xit 'cruiser has consecutive coordinates II' do
 
-        expect(board.valid_placement?(cruiser, ["A3", "A2", "A1"]). to eq(false)
+        expect(board.valid_placement?(cruiser, ["A3", "A2", "A1"])).to eq(false)
       end
 
-      it 'submarine has consecutive coordinates II' do
+      xit 'submarine has consecutive coordinates II' do
 
-        expect(board.valid_placement?(submarine, ["C1", "B1"]). to eq(false)
+        expect(board.valid_placement?(submarine, ["C1", "B1"])).to eq(false)
       end
 
 
