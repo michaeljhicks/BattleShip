@@ -4,7 +4,7 @@ require './lib/cell'
 
 
 RSpec.describe Board do
-  context 'Iteration II Board' do
+  context 'Iteration II' do
 
     let(:board) {Board.new}
     let(:cruiser) {Ship.new("Cruiser", 3)}
@@ -44,22 +44,22 @@ RSpec.describe Board do
       #   expect(board.valid_placement?(submarine, ["A2", "A3"])).to eq(true)
       # end
 
-      xit 'cruiser has consecutive coordinates I' do
+      it 'cruiser has consecutive coordinates I' do
 
         expect(board.valid_placement?(cruiser, ["A1", "A2", "A4"])).to eq(false)
       end
 
-      xit 'submarine has consecutive coordinates I' do
+      it 'submarine has consecutive coordinates I' do
 
         expect(board.valid_placement?(submarine, ["A1", "C1"])).to eq(false)
       end
 
-      xit 'cruiser has consecutive coordinates II' do
+      it 'cruiser has consecutive coordinates II' do
 
         expect(board.valid_placement?(cruiser, ["A3", "A2", "A1"])).to eq(false)
       end
 
-      xit 'submarine has consecutive coordinates II' do
+      it 'submarine has consecutive coordinates II' do
 
         expect(board.valid_placement?(submarine, ["C1", "B1"])).to eq(false)
       end
@@ -69,12 +69,12 @@ RSpec.describe Board do
 
     describe "Coordinates can't be diagonal" do #RED
 
-      xit "cruiser valid? " do
+      it "cruiser valid? " do
 
         expect(board.valid_placement?(cruiser, ["A1", "B2", "C3"])).to eq(false)
       end
 
-      xit "submarine valid? " do #RED
+      it "submarine valid? " do #RED
 
         expect(board.valid_placement?(submarine, ["C2", "D3"])).to eq(false)
 
@@ -82,12 +82,12 @@ RSpec.describe Board do
 
     describe "coordinates are valid!" do #RED
 
-      xit "submarine valid placement" do #RED
+      it "submarine valid placement" do #RED
 
         expect(board.valid_placement?(submarine, ["A1", "A2"])).to eq(true)
       end
 
-      xit "cruiser valid placement" do #RED
+      it "cruiser valid placement" do #RED
 
         expect(board.valid_placement?(cruiser, ["B1", "C1", "D1"])).to eq(true)
       end
@@ -115,6 +115,12 @@ RSpec.describe Board do
       end
 
       it "cell occupied by ship" do
+        board.place(cruiser, ["A1", "A2", "A3"])
+        cell_1 = board.cells["A1"]
+        cell_2 = board.cells["A2"]
+        cell_3 = board.cells["A3"]
+
+
         expect(cell_1.ship).to be_a(Ship)
         expect(cell_2.ship).to be_a(Ship)
         expect(cell_3.ship).to be_a(Ship)
@@ -122,6 +128,11 @@ RSpec.describe Board do
       end
 
       it "is the same ship" do
+        board.place(cruiser, ["A1", "A2", "A3"])
+        cell_1 = board.cells["A1"]
+        cell_2 = board.cells["A2"]
+        cell_3 = board.cells["A3"]
+
         expect(cell_3.ship == cell_2.ship).to eq(true)
 
       end
@@ -163,7 +174,7 @@ RSpec.describe Board do
 
       end
 
-      it "placing a cruiser" do
+      xit "placing a cruiser" do
         board.place(cruiser, ["A1", "A2", "A3"])
         board.render
         board.render(true)
