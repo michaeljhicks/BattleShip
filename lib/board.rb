@@ -32,8 +32,11 @@ class Board
   def valid_placement?(ship, coordinates)
     letters = coordinates.map {|coordinate| coordinate[0]}
     numbers = coordinates.map {|coordinate| coordinate[1].to_i}
+    overlapping = coordinates.map {|coordinate| @cells[coordinate].empty?}
     if coordinates.length != ship.length
       return false
+    elsif overlapping.include?(false) == true
+      false
     elsif letters.uniq.length == 1 && (numbers.min..numbers.max).to_a == numbers
       true #if letters are the same (AAA) and the numbers are sequential( 123)
     elsif (letters.min..letters.max).to_a == letters && numbers.uniq.length == 1
@@ -44,20 +47,17 @@ class Board
       false #if letters the same (AAA) and numbers the same (111) false
     else
        false
-
-    #if letters the same (AAA) and numbers are not sequential  = false
-    #if letters not sequential (ABD) and numbers are the same (111) = false
     end
   end
 
     def place(ship, coordinates)
-      #coordinates.map do |coordinate|
-      #@cells[coordinate].place_ship(ship)
+      coordinates.map do |coordinate|
+      @cells[coordinate].place_ship(ship)
 
     end
 
     def render
 
     end
-
+  end
 end

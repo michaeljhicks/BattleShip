@@ -106,7 +106,7 @@ RSpec.describe Board do
 
       end
 
-      xit "places a ship" do
+      it "places a ship" do
 
         board.place(cruiser, ["A1", "A2", "A3"])
         expect(cell_1 = board.cells["A1"]).to be_a(Cell)
@@ -114,14 +114,25 @@ RSpec.describe Board do
         expect(cell_3 = board.cells["A3"]).to be_a(Cell)
       end
 
-      xit "cell occupied by ship" do
+      it "cell occupied by ship" do
+        board.place(cruiser, ["A1", "A2", "A3"])
+        cell_1 = board.cells["A1"]
+        cell_2 = board.cells["A2"]
+        cell_3 = board.cells["A3"]
+
+
         expect(cell_1.ship).to be_a(Ship)
         expect(cell_2.ship).to be_a(Ship)
         expect(cell_3.ship).to be_a(Ship)
 
       end
 
-      xit "is the same ship" do
+      it "is the same ship" do
+        board.place(cruiser, ["A1", "A2", "A3"])
+        cell_1 = board.cells["A1"]
+        cell_2 = board.cells["A2"]
+        cell_3 = board.cells["A3"]
+
         expect(cell_3.ship == cell_2.ship).to eq(true)
 
       end
@@ -142,7 +153,7 @@ RSpec.describe Board do
 
       end
 
-      xit "placing a cruiser" do
+      it "placing a cruiser" do
         board.place(cruiser, ["A1", "A2", "A3"])
         expect(submarine = Ship.new("Submarine", 2)).to be_a(Ship)
         expect(board.valid_placement?(submarine, ["A1", "B1"])).to eq(false)
@@ -152,12 +163,12 @@ RSpec.describe Board do
     end
 
     describe "render the board" do
-      xit 'exists' do
+      it 'exists' do
 
         expect(board).to be_a(Board)
       end
 
-      xit "ship exists" do
+      it "ship exists" do
 
         expect(cruiser = Ship.new("Cruiser", 3)).to be_a(Ship)
 
