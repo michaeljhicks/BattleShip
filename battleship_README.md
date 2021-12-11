@@ -127,42 +127,42 @@ pry(main)> cell_1 = Cell.new("B4")
 pry(main)> cell_1.render
 # => "."
 
-pry(main)> cell_1.fire_upon...X
+pry(main)> cell_1.fire_upon
 
-pry(main)> cell_1.render...X
+pry(main)> cell_1.render
 # => "M"
 
-pry(main)> cell_2 = Cell.new("C3")...X
+pry(main)> cell_2 = Cell.new("C3")
 # => #<Cell:0x00007f84f0b29d10...>
 
-pry(main)> cruiser = Ship.new("Cruiser", 3)...X
+pry(main)> cruiser = Ship.new("Cruiser", 3)
 # => #<Ship:0x00007f84f0ad4fb8...>
 
-pry(main)> cell_2.place_ship(cruiser)...X
+pry(main)> cell_2.place_ship(cruiser)
 
-pry(main)> cell_2.render...X
+pry(main)> cell_2.render
 # => "."
 
 # Indicate that we want to show a ship with the optional argument
-pry(main)> cell_2.render(true)...X
+pry(main)> cell_2.render(true)
 # => "S"
 
-pry(main)> cell_2.fire_upon...X
+pry(main)> cell_2.fire_upon
 
-pry(main)> cell_2.render...X
+pry(main)> cell_2.render
 # => "H"
 
-pry(main)> cruiser.sunk?...X
+pry(main)> cruiser.sunk?
 # => false
 
-pry(main)> cruiser.hit...X
+pry(main)> cruiser.hit
 
-pry(main)> cruiser.hit...X
+pry(main)> cruiser.hit
 
-pry(main)> cruiser.sunk?...X
+pry(main)> cruiser.sunk?
 # => true
 
-pry(main)> cell_2.render...X
+pry(main)> cell_2.render
 # => "X"
 ```
 
@@ -179,13 +179,13 @@ pry(main)> cell_2.render...X
   The board is responsible for keeping track of all the cells. Since our board is 4 x 4, it will have 16 Cell objects. It will keep track of these cells in a hash where the coordinates of the cell are the keys that point to Cell objects:
 
 ```ruby
-pry(main)> require './lib/board'
+pry(main)> require './lib/board' ....x
 # => true
 
-pry(main)> board = Board.new
+pry(main)> board = Board.new ....x
 # => #<Board:0x00007ff0728c8010...>
 
-pry(main)> board.cells
+pry(main)> board.cells ....x
 # =>
 {
  "A1" => #<Cell:0x00007ff0728a3f58...>,
@@ -213,19 +213,19 @@ pry(main)> board.cells
   Our board should be able to tell us if a coordinate is on the board or not:
 
 ```ruby
-pry(main)> board.valid_coordinate?("A1")
+pry(main)> board.valid_coordinate?("A1")....x
 # => true
 
-pry(main)> board.valid_coordinate?("D4")
+pry(main)> board.valid_coordinate?("D4")....x
 # => true
 
-pry(main)> board.valid_coordinate?("A5")
+pry(main)> board.valid_coordinate?("A5")....x
 # => false
 
-pry(main)> board.valid_coordinate?("E1")
+pry(main)> board.valid_coordinate?("E1")....x
 # => false
 
-pry(main)> board.valid_coordinate?("A22")
+pry(main)> board.valid_coordinate?("A22")....x
 # => false
 ```
 
@@ -241,43 +241,43 @@ pry(main)> require './lib/board'
 pry(main)> require './lib/ship'
 # => true
 
-pry(main)> board = Board.new
+pry(main)> board = Board.new....x
 # => #<Board:0x00007fcb0d9db478...>
 
-pry(main)> cruiser = Ship.new("Cruiser", 3)
+pry(main)> cruiser = Ship.new("Cruiser", 3)....x
 # => #<Ship:0x00007fcb0d989510...>
 
-pry(main)> submarine = Ship.new("Submarine", 2)    
+pry(main)> submarine = Ship.new("Submarine", 2)    ....x
 # => #<Ship:0x00007fcb0e8402c0...>
 ```
 
   First, the number of coordinates in the array should be the same as the length of the ship:
 
 ```ruby
-pry(main)> board.valid_placement?(cruiser, ["A1", "A2"])
+pry(main)> board.valid_placement?(cruiser, ["A1", "A2"])....x
 # => false
 
-pry(main)> board.valid_placement?(submarine, ["A2", "A3", "A4"])
+pry(main)> board.valid_placement?(submarine, ["A2", "A3", "A4"])....x
 # => false
 ```
 
   Next, make sure the coordinates are consecutive:
 
 ```ruby
-pry(main)> board.valid_placement?(cruiser, ["A1", "A2", "A4"])
+pry(main)> board.valid_placement?(cruiser, ["A1", "A2", "A4"])....x
 # => false
 
-pry(main)> board.valid_placement?(submarine, ["A1", "C1"])
+pry(main)> board.valid_placement?(submarine, ["A1", "C1"])....x
 # => false
 
-pry(main)> board.valid_placement?(cruiser, ["A3", "A2", "A1"])
+pry(main)> board.valid_placement?(cruiser, ["A3", "A2", "A1"])....x
 # => false
 
-pry(main)> board.valid_placement?(submarine, ["C1", "B1"])
+pry(main)> board.valid_placement?(submarine, ["C1", "B1"])....x
 # => false
 ```
 
-  Finally, coordinates can’t be diagonal:
+  *****Finally, coordinates can’t be diagonal:******
 
 ```ruby
 pry(main)> board.valid_placement?(cruiser, ["A1", "B2", "C3"])

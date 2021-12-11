@@ -33,8 +33,8 @@ class Cell
     @fired_upon = true
   end
 
-  def render(show_ship = false)
-      if show_ship == true && empty? == false
+  def render(ship = false)
+      if ship == true && empty? == false
         "S"
       elsif empty? == false && @fired_upon == true && @ship.sunk?
         "X"
@@ -46,6 +46,6 @@ class Cell
         "."
 
       end
-    
+
   end
 end
