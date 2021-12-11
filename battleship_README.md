@@ -155,14 +155,14 @@ pry(main)> cell_2.render...X
 pry(main)> cruiser.sunk?...X
 # => false
 
-pry(main)> cruiser.hit
+pry(main)> cruiser.hit...X
 
-pry(main)> cruiser.hit
+pry(main)> cruiser.hit...X
 
-pry(main)> cruiser.sunk?
+pry(main)> cruiser.sunk?...X
 # => true
 
-pry(main)> cell_2.render
+pry(main)> cell_2.render...X
 # => "X"
 ```
 

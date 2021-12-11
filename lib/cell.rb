@@ -34,7 +34,9 @@ class Cell
   end
 
   def render
-    if empty? == false && @fired_upon == true
+    if empty? == false && @fired_upon == true && @ship.sunk?
+      "X"
+    elsif empty? == false && @fired_upon == true
       "H"
     elsif @fired_upon == true && empty? == true
       "M"
