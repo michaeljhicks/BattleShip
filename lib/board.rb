@@ -45,39 +45,19 @@ class Board
     else
        false
 
-
-
-
-
     #if letters the same (AAA) and numbers are not sequential  = false
     #if letters not sequential (ABD) and numbers are the same (111) = false
-
-#binding.pry
-    #if letters == (letters.min..letters.max).to_a && (numbers.min..numbers.max).to_a
-      #true
-    # elsif
     end
   end
 
-    # numbers.each_cons(3).to_a
-    def four_consecutive?(numbers)
-      return false unless numbers.size == ship.length
-      numbers.each_cons(2).all? {|a, b| b == a + 1 }
-    end
-    #binding.pry
-
-
-
-
     def place(ship, coordinates)
-
+      #coordinates.map do |coordinate|
+      #@cells[coordinate].place_ship(ship)
 
     end
 
     def render
 
     end
-    # letters = []
-    # numbers = []
 
 end

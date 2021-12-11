@@ -69,12 +69,12 @@ RSpec.describe Board do
 
     describe "Coordinates can't be diagonal" do #RED
 
-      xit "cruiser valid? " do
+      it "cruiser valid? " do
 
         expect(board.valid_placement?(cruiser, ["A1", "B2", "C3"])).to eq(false)
       end
 
-      xit "submarine valid? " do #RED
+      it "submarine valid? " do #RED
 
         expect(board.valid_placement?(submarine, ["C2", "D3"])).to eq(false)
 
