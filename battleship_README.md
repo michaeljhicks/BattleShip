@@ -127,42 +127,42 @@ pry(main)> cell_1 = Cell.new("B4")
 pry(main)> cell_1.render
 # => "."
 
-pry(main)> cell_1.fire_upon
+pry(main)> cell_1.fire_upon...X
 
-pry(main)> cell_1.render
+pry(main)> cell_1.render...X
 # => "M"
 
-pry(main)> cell_2 = Cell.new("C3")
+pry(main)> cell_2 = Cell.new("C3")...X
 # => #<Cell:0x00007f84f0b29d10...>
 
-pry(main)> cruiser = Ship.new("Cruiser", 3)
+pry(main)> cruiser = Ship.new("Cruiser", 3)...X
 # => #<Ship:0x00007f84f0ad4fb8...>
 
-pry(main)> cell_2.place_ship(cruiser)
+pry(main)> cell_2.place_ship(cruiser)...X
 
-pry(main)> cell_2.render
+pry(main)> cell_2.render...X
 # => "."
 
 # Indicate that we want to show a ship with the optional argument
-pry(main)> cell_2.render(true)
+pry(main)> cell_2.render(true)...X
 # => "S"
 
-pry(main)> cell_2.fire_upon
+pry(main)> cell_2.fire_upon...X
 
-pry(main)> cell_2.render
+pry(main)> cell_2.render...X
 # => "H"
 
-pry(main)> cruiser.sunk?
+pry(main)> cruiser.sunk?...X
 # => false
 
-pry(main)> cruiser.hit
+pry(main)> cruiser.hit...X
 
-pry(main)> cruiser.hit
+pry(main)> cruiser.hit...X
 
-pry(main)> cruiser.sunk?
+pry(main)> cruiser.sunk?...X
 # => true
 
-pry(main)> cell_2.render
+pry(main)> cell_2.render...X
 # => "X"
 ```
 
