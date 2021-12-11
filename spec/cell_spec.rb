@@ -1,6 +1,6 @@
 require './lib/ship'
 require './lib/cell'
- 
+
 RSpec.describe Cell do
   context 'Iteration I Cell' do
 
@@ -31,7 +31,7 @@ RSpec.describe Cell do
 
         cell.place_ship(cruiser)
         expect(cell.empty?).to eq(false)
-        expect(cell.ship).to eq(cruiser)
+         expect(cell.ship).to eq(cruiser)
       end
 
     describe '#fire_upon and #fired_upon?' do
@@ -40,17 +40,102 @@ RSpec.describe Cell do
           expect(cell.fired_upon?).to eq(false)
         end
 
-        it 'can be fired upon and lower ship health' do
+        it 'can be fired upon' do
           cell = Cell.new("B4")
           cruiser = Ship.new("Cruiser", 3)
 
           cell.place_ship(cruiser)
+          # require 'pry' ; binding.pry
+
+
+          expect(cell.fired_upon?).to be(false)
+        end
+
+        it 'can lower ship health' do
+          cell = Cell.new("B4")
+          cruiser = Ship.new("Cruiser", 3)
+
+          cell.place_ship(cruiser)
+          # require 'pry' ; binding.pry
 
           cell.fire_upon
-          expect(cell.fired_upon?).to be(true)
+
           expect(cell.ship.health).to be(2)
+          expect(cell.fired_upon?).to be(true)
         end
       end
+
+      describe '#hits and misses' do
+          it 'can render a cell' do
+            cell_1 = Cell.new("B4")
+            expect(cell_1).to be_a(Cell)
+          end
+
+          it 'cell has not been fired upon' do
+            cell_1 = Cell.new("B4")
+
+            expect(cell_1.render).to eq(".")
+          end
+
+          it 'can render a miss' do
+            cell_1 = Cell.new("B4")
+            cell_1.fire_upon
+            expect(cell_1.render).to eq("M")
+          end
+
+          it 'can show a ship' do
+            cell_1 = Cell.new("B4")
+            cell_2 = Cell.new("C3")
+            cruiser = Ship.new("Cruiser", 3)
+            cell_2.place_ship(cruiser)
+            expect(cell_2.render).to eq(".")
+            expect(cell_2.render(true)).to eq("S")
+          end
+
+          it 'can render a hit' do
+            cell_1 = Cell.new("B4")
+            cell_2 = Cell.new("C3")
+            cruiser = Ship.new("Cruiser", 3)
+            cell_2.place_ship(cruiser)
+            cell_2.fire_upon
+            expect(cell_2.render).to eq("H")
+          end
+
+          it 'cruiser sunk' do
+            cell_1 = Cell.new("B4")
+            cell_2 = Cell.new("C3")
+            cruiser = Ship.new("Cruiser", 3)
+            cell_2.place_ship(cruiser)
+            cell_2.fire_upon
+            expect(cruiser.sunk?).to eq(false)
+          end
+
+          it 'cruiser takes hits and sinks' do
+            cell_1 = Cell.new("B4")
+            cell_2 = Cell.new("C3")
+            cruiser = Ship.new("Cruiser", 3)
+            cell_2.place_ship(cruiser)
+            cell_2.fire_upon
+            cruiser.hit
+            cruiser.hit
+            expect(cruiser.sunk?).to eq(true)
+          end
+
+          it 'renders X when sinks' do
+            cell_1 = Cell.new("B4")
+            cell_2 = Cell.new("C3")
+            cruiser = Ship.new("Cruiser", 3)
+            cell_2.place_ship(cruiser)
+            cell_2.fire_upon
+            cruiser.hit
+            cruiser.hit
+            expect(cell_2.render).to eq("X")
+          end
+
+
+
+        end
+
     end
   end
 end
