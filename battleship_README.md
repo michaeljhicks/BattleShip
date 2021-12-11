@@ -152,7 +152,7 @@ pry(main)> cell_2.fire_upon...X
 pry(main)> cell_2.render...X
 # => "H"
 
-pry(main)> cruiser.sunk?
+pry(main)> cruiser.sunk?...X
 # => false
 
 pry(main)> cruiser.hit
