@@ -1,3 +1,5 @@
+require 'pry'
+
 class Board
   attr_reader :cells
 
@@ -23,7 +25,37 @@ class Board
 
   end
 
-  def valid_coordinate?(argument)
-    argument = true && false
+  def valid_coordinate?(coordinate)
+    @cells.keys.include?(coordinate)
+  end
+
+  def valid_placement?(ship, coordinates)
+    letters = coordinates.map {|coordinate| coordinate[0]}
+    numbers = coordinates.map {|coordinate| coordinate[1]}.to_s
+
+    # numbers.each_cons(3).to_a
+    def four_consecutive?(numbers)
+      return false unless numbers.size == ship.length
+      numbers.each_cons(2).all? {|a, b| b == a + 1 }
+    end
+    # binding.pry
+    if coordinates.length != ship.length
+      return false
+
+    else
+      return true
+    end
+
+    def place(ship, coordinates)
+
+
+    end
+
+    def render
+
+    end
+    # letters = []
+    # numbers = []
+
   end
 end
