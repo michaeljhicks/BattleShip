@@ -15,7 +15,7 @@ RSpec.describe Board do
         expect(board).to be_a(Board)
       end
 
-      xit 'has cells' do
+      it 'has cells' do
 
         expect(board.cells).to be_a(Hash)
       end
