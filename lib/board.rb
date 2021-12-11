@@ -23,7 +23,7 @@ class Board
 
   end
 
-  def valid_coordinate?(argument)
-    argument = true && false
+  def valid_coordinate?(coordinate)
+    @cells.keys.include?(coordinate)
   end
 end
