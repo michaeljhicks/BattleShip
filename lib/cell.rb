@@ -33,19 +33,19 @@ class Cell
     @fired_upon = true
   end
 
-  def render(show_ship = false)
-      if show_ship == true && empty? == false
-        "S"
-      elsif empty? == false && @fired_upon == true && @ship.sunk?
-        "X"
-      elsif empty? == false && @fired_upon == true
-        "H"
-      elsif @fired_upon == true && empty? == true
-        "M"
-      else
-        "."
+  def render(ship = false)
+    if ship == true && empty? == false
+      "S"
+    elsif empty? == false && @fired_upon == true && @ship.sunk?
+      "X"
+    elsif empty? == false && @fired_upon == true
+      "H"
+    elsif @fired_upon == true && empty? == true
+      "M"
+    else
+      "."
 
-      end
-    
+    end
+
   end
 end
