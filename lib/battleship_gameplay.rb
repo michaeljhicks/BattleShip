@@ -31,10 +31,15 @@ class BattleShip
   end
 
   def game_begin
+    computer.place_ships
+    player
     #here, the computer places the cruiser and the sub
     #then the player places the crusier and the sub
 
   end
+
+  #evalutes shot
+  #display hit,miss, sunk
 
   def game_end
     #when both players ships are sunk - OR - both computers ships are sunk
