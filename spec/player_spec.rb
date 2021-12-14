@@ -1,19 +1,28 @@
 require './lib/ship'
 require './lib/cell'
-require './lib/turn'
+require './lib/board'
 require './lib/player'
-require './lib/computer'
+
 
 
 RSpec.describe Player do
   context 'Iteration III' do
 
-    let(:player) {Player.new("")}
+    let(:board) {Board.new}
+    let(:player) {Player.new(board)}
 
     describe 'Player' do
       it 'exists' do
 
         expect(player).to be_a(Player)
+      end
+    end
+
+    describe 'has ships' do
+      it 'exists' do
+
+        expect(player.cruiser).to be_a(Ship)
+        expect(player.submarine).to be_a(Ship)
       end
     end
   end

@@ -1,6 +1,6 @@
 
-
-
+require 'pry'
+require './lib/computer'
 
 class Player
 
@@ -13,90 +13,46 @@ class Player
     @cruiser = Ship.new('cruiser', 3)
     @submarine = Ship.new('submarine', 2)
   end
+  def player_places_ships
+    puts  "I have laid out my ships on the grid\n" +
+          "You now need to lay out your two ships.\n" +
+          "The Cruiser is three units long and the \n" +
+          "Submarine is two units long."
+    puts @player_board.render
+    
+    puts  "Enter the squares for the Cruiser one at a time, \n" +
+          "for a total of 3 spaces:"
 
-  def player_setup_cruiser #moved over from battleship_gameplay
-      cruiser = Ship.new("Cruiser", 3)
-      loop do
-        player_selection = gets.chomp
-        cruiser_coordinates = player_selection.split(",")
-        cruiser_coordinates = cruiser_coordinates.map do |coordinate|
-          coordinate.strip()
-        end
-        if @player_board.valid_placement?(cruiser, cruiser_coordinates)
-          @player_board.place(cruiser, cruiser_coordinates)
-          break
-        end
-        puts "Those are invalid coordinates. Please try again:"
-      end
-    end
-
-  def select_letter
-    letter = ("A".."D").to_a
-    letter.sample
-  end
-
-  def select_number
-    number = ("1".."4").to_a
-    number.sample
-  end
-
-  def merge_select
-    select_letter + select_number
-  end
-
-
-  def place_cruiser
     loop do
-      cruiser_coordinates = []
-      @cruiser.length.times do
-        cruiser_coordinates << merge_select
+      input = gets.chomp
+      cruiser_coords = input.split(",")
+      cruiser_coords = cruiser_coords.map do |coordinate|
+        coordinate.strip()
       end
-      cruiser_coordinates.sort
-      if @player_board.valid_placement?(@cruiser, cruiser_coordinates) == true
-        @player_board.place(@cruiser, cruiser_coordinates)
+      if @player_board.valid_placement?(cruiser, cruiser_coords)
+        @player_board.place(cruiser, cruiser_coords)
         break
       end
+      puts "Those are invalid coordinates. Please try again:"
     end
-  end
 
-  def place_submarine
+    puts "Now let's place the Submarine.\n" +
+    "It has 2 cells. Please enter them one at a time."
+    puts @player_board.render(true)
     loop do
-      submarine_coordinates = []
-      @submarine.length.times do
-        submarine_coordinates << merge_select
+      input = gets.chomp
+      submarine_coords = input.split(",")
+      submarine_coords = submarine_coords.map do |coordinate|
+        coordinate.strip()
       end
-      submarine_coordinates.sort
-      if @player_board.valid_placement?(@submarine, submarine_coordinates) == true
-        @player_board.place(@submarine, submarine_coordinates)
+      if @player_board.valid_placement?(submarine, submarine_coords)
+        @player_board.place(submarine, submarine_coords)
         break
       end
+      puts "Those are invalid coordinates. Please try again:"
     end
+    puts "Here is your board"
+    `say "Lets play!"`
+    puts @player_board.render(true)
   end
 end
-
-
-
-# Old
-# class Player
-#
-#   attr_reader
-#
-#   def initialize(board)
-#     @player_board = board
-#     @cruiser = Ship.new('cruiser', 3)
-#     @submarine = Ship.new('submarine', 2)
-#   end
-#
-#   def place_ships
-#   board.place
-#   board.valid_placement
-#
-#   #for cruiser
-#     #choice to pick AAA 123, ABC 111 etc, length 3
-#   #for submarine
-#     #choice to pick AAA 123, ABC 111 etc, length 2
-#   end
-
-# player sets up board
-# player interacts with command line
-# player takes turns
