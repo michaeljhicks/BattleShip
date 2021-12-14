@@ -2,25 +2,24 @@ require 'pry'
 require './lib/board'
 
 class Turn
-  attr_reader :comp_selection,
+  attr_reader :computer,
               :player_selection,
               :comp_sunk_ships,
               :player_sunk_ships
 
-  def initialize(comp_selection, player_selection)
-    @comp_selection = comp_selection #already handled on both Computer + Player classes
+  def initialize(computer, player_selection)
+    @computer = computer #already handled on both Computer + Player classes
     @player_selection = player_selection
     @comp_sunk_ships = 0
     @player_sunk_ships = 0
   end
 
-  # display the boards
+  # show the boards
   def show_boards
     p "=============COMPUTER BOARD============="
-    p @comp_selection.board.render
+    p @computer.board.render
     p "==============PLAYER BOARD=============="
     p @player_selection.board.render(true)
-      binding.pry
   end
 
   # prompt player shot coordinates
@@ -28,20 +27,20 @@ class Turn
   def player_shot(player_choice)
     loop do
       if player_choice != []
-        if comp_selection.board.valid_coordinate?(player_choice)
-          if comp_selection.board.cells[player_choice].fired_upon? == false
-            @comp_selection.board.cells[player_choice].fire_upon
-            if comp_selection.board.cells[player_choice].render(true) == "M"
+        if computer.board.valid_coordinate?(player_choice)
+          if computer.board.cells[player_choice].fired_upon? == false
+            @computer.board.cells[player_choice].fire_upon
+            if computer.board.cells[player_choice].render(true) == "M"
               puts "Your shot on #{player_choice} was a miss."
-            elsif comp_selection.board.cells[player_choice].render(true) == "H"
+            elsif computer.board.cells[player_choice].render(true) == "H"
               puts "Your shot on #{player_choice} was a hit."
-            elsif comp_selection.board.cells[player_choice].render(true) == "X"
+            elsif computer.board.cells[player_choice].render(true) == "X"
               puts "Your shot on #{player_choice} sunk a ship."
               @comp_ships_sunk += 1
             end
             break
           end
-        elsif comp_selection.board.valid_coordinate?(player_choice) == false
+        elsif computer.board.valid_coordinate?(player_choice) == false
           puts "Invalid coordinate! Try again:"
           break
         end
