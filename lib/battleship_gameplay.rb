@@ -11,7 +11,7 @@ class BattleShip
   end
 
   def game_menu
-
+    system "clear"
     puts ```                         __________         __    __  .__           _________.__    .__
       /\|\/\     /\|\/\     /\|\/\   \______   \_____ _/  |__/  |_|  |   ____  /   _____/|  |__ |__|_____    /\|\/\     /\|\/\     /\|\/\
      _)    (__  _)    (__  _)    (__  |    |  _/\__  \\   __\   __\  | _/ __ \ \_____  \ |  |  \|  \____ \  _)    (__  _)    (__  _)    (__
@@ -31,10 +31,15 @@ class BattleShip
   end
 
   def game_begin
+    computer.place_ships
+    player
     #here, the computer places the cruiser and the sub
     #then the player places the crusier and the sub
 
   end
+
+  #evalutes shot
+  #display hit,miss, sunk
 
   def game_end
     #when both players ships are sunk - OR - both computers ships are sunk
