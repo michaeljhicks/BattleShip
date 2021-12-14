@@ -45,12 +45,10 @@ class BattleShip
     puts "You now need to lay out your two ships."
     # sleep(1.0)
     puts "The Cruiser is three units long and the Submarine is two units long."
-    puts ""
+
     # sleep(1.0)
     puts "#{@comp_board.render}\n" + "Enter the squares for the Cruiser (3 spaces):"
-
-    return player_setup_cruiser
-
+    return player_setup_cruiser #calls
     puts "#{@player_board.render(true)}\n" + "Enter the squares for the Submarine (2 spaces):"
     return player_setup_sub
     new_turn
@@ -86,8 +84,8 @@ class BattleShip
       puts "==============PLAYER BOARD=============="
       puts "#{@player_board.render(true)}"
       puts "Enter coordinate to fire upon"
-      player_selection = gets.chomp
-      turn.player_shot(player_selection)
+      player_choice = gets.chomp
+      turn.player_shot(player_choice)
       # sleep(0.8)
       if @comp_player.has_lost?
         puts "=============COMPUTER BOARD============="
@@ -143,7 +141,7 @@ class BattleShip
 
 
 
-end
+
 
 
 

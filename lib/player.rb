@@ -100,5 +100,3 @@ end
 # player sets up board
 # player interacts with command line
 # player takes turns
-
-end
