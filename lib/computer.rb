@@ -1,62 +1,17 @@
-<<<<<<< HEAD
 require 'pry'
-require './lib/ship'
-=======
 require './lib/ship'
 require './lib/cell'
 require './lib/turn'
 require './lib/player'
 require './lib/computer'
->>>>>>> 52cfeff583752880f88a060edc2f5ff49f9048d0
 require './lib/board'
+require './lib/battleship_gameplay'
 
-require 'pry'
 class Computer
 
-<<<<<<< HEAD
   attr_reader :comp_board,
               :cruiser,
               :submarine
-=======
-  attr_reader :cruiser_placement
-              :sub_placement
-
-  def initialize(board_placement)
-    @cruiser = Ship.new("Cruiser", 3)
-    @submarine = Ship.new("Submarine", 2)
-    @board = board
-
-  end
-
-
-
-
-  def place_cruiser
-    @cruiser_placement.sample
-    binding.pry
-  # board.place
-  # board.valid_placement
-  #   random
-  # choose from range abcd to 1234
-  #for cruiser
-    #choice to pick AAA 123, ABC 111 etc, length 3
-  #for submarine
-    #choice to pick AAA 123, ABC 111 etc, length 2
-  end
-end
-  def sub_placement
-    board.place
-    board.valid_placement
-      random
-    # choose from range abcd to 1234
-    #draw from the array and select elements random and compare against valid?
-  end
-
-def comuter_turn
-# computer sets its board
-#computer needs to take a turn
-#expect plenty of valid_placement pull throughs
->>>>>>> 52cfeff583752880f88a060edc2f5ff49f9048d0
 
   def initialize(board)
     @comp_board = board
@@ -105,7 +60,6 @@ def comuter_turn
         break
       end
     end
-    binding.pry
   end
 end
 
