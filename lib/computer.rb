@@ -1,52 +1,66 @@
+require 'pry'
 require './lib/ship'
 require './lib/cell'
 require './lib/turn'
 require './lib/player'
 require './lib/computer'
 require './lib/board'
+require './lib/battleship_gameplay'
 
-require 'pry'
 class Computer
 
-  attr_reader :cruiser_placement
-              :sub_placement
+  attr_reader :comp_board,
+              :cruiser,
+              :submarine
 
-  def initialize(board_placement)
-    @cruiser = Ship.new("Cruiser", 3)
-    @submarine = Ship.new("Submarine", 2)
-    @board = board
-
+  def initialize(board)
+    @comp_board = board
+    @cruiser = Ship.new('cruiser', 3)
+    @submarine = Ship.new('submarine', 2)
   end
 
+  def select_letter
+    letter = ("A".."D").to_a
+    letter.sample
+  end
 
+  def select_number
+    number = ("1".."4").to_a
+    number.sample
+  end
+
+  def merge_select
+    select_letter + select_number
+  end
 
 
   def place_cruiser
-    @cruiser_placement.sample
-    binding.pry
-  # board.place
-  # board.valid_placement
-  #   random
-  # choose from range abcd to 1234
-  #for cruiser
-    #choice to pick AAA 123, ABC 111 etc, length 3
-  #for submarine
-    #choice to pick AAA 123, ABC 111 etc, length 2
-  end
-end
-  def sub_placement
-    board.place
-    board.valid_placement
-      random
-    # choose from range abcd to 1234
-    #draw from the array and select elements random and compare against valid?
+    loop do
+      cruiser_coordinates = []
+      @cruiser.length.times do
+        cruiser_coordinates << merge_select
+      end
+      cruiser_coordinates.sort
+      if @comp_board.valid_placement?(@cruiser, cruiser_coordinates) == true
+        @comp_board.place(@cruiser, cruiser_coordinates)
+        break
+      end
+    end
   end
 
-def comuter_turn
-# computer sets its board
-#computer needs to take a turn
-#expect plenty of valid_placement pull throughs
-
+  def place_submarine
+    loop do
+      submarine_coordinates = []
+      @submarine.length.times do
+        submarine_coordinates << merge_select
+      end
+      submarine_coordinates.sort
+      if @comp_board.valid_placement?(@submarine, submarine_coordinates) == true
+        @comp_board.place(@submarine, submarine_coordinates)
+        break
+      end
+    end
+  end
 end
 
 
