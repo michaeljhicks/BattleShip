@@ -1,3 +1,4 @@
+
 require 'pry'
 require './lib/computer'
 
@@ -18,7 +19,7 @@ class Player
           "The Cruiser is three units long and the \n" +
           "Submarine is two units long."
     puts @player_board.render
-
+    
     puts  "Enter the squares for the Cruiser one at a time, \n" +
           "for a total of 3 spaces:"
 
@@ -54,5 +55,4 @@ class Player
     `say "Lets play!"`
     puts @player_board.render(true)
   end
-
 end
