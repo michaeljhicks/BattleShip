@@ -1,28 +1,6 @@
-class Player
 
-  attr_reader
 
-  def initialize(board)
-    @player_board = board
-    @cruiser = Ship.new('cruiser', 3)
-    @submarine = Ship.new('submarine', 2)
-  end
 
-  def place_ships
-  board.place
-  board.valid_placement
-
-  #for cruiser
-    #choice to pick AAA 123, ABC 111 etc, length 3
-  #for submarine
-    #choice to pick AAA 123, ABC 111 etc, length 2
-  end
-
-# player sets up board
-# player interacts with command line
-# player takes turns
-
-end
 
 class Player
 
@@ -35,6 +13,22 @@ class Player
     @cruiser = Ship.new('cruiser', 3)
     @submarine = Ship.new('submarine', 2)
   end
+
+  def player_setup_cruiser #moved over from battleship_gameplay
+      cruiser = Ship.new("Cruiser", 3)
+      loop do
+        player_selection = gets.chomp
+        cruiser_coordinates = player_selection.split(",")
+        cruiser_coordinates = cruiser_coordinates.map do |coordinate|
+          coordinate.strip()
+        end
+        if @player_board.valid_placement?(cruiser, cruiser_coordinates)
+          @player_board.place(cruiser, cruiser_coordinates)
+          break
+        end
+        puts "Those are invalid coordinates. Please try again:"
+      end
+    end
 
   def select_letter
     letter = ("A".."D").to_a
@@ -78,4 +72,33 @@ class Player
       end
     end
   end
+end
+
+
+
+# Old
+# class Player
+#
+#   attr_reader
+#
+#   def initialize(board)
+#     @player_board = board
+#     @cruiser = Ship.new('cruiser', 3)
+#     @submarine = Ship.new('submarine', 2)
+#   end
+#
+#   def place_ships
+#   board.place
+#   board.valid_placement
+#
+#   #for cruiser
+#     #choice to pick AAA 123, ABC 111 etc, length 3
+#   #for submarine
+#     #choice to pick AAA 123, ABC 111 etc, length 2
+#   end
+
+# player sets up board
+# player interacts with command line
+# player takes turns
+
 end

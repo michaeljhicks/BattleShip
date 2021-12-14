@@ -13,8 +13,8 @@ class BattleShip
               :player_sunk_ships
 
   def initialize(computer, player)
-    @comp_player = computer
-    @person_player = player
+    # @comp_player = computer
+    # @person_player = player
     @comp_sunk_ships = 0
     @player_sunk_ships = 0
     @comp_board = @comp_player.board
@@ -36,7 +36,7 @@ class BattleShip
 
     player_start = gets.chomp
     if player_start == 'p' || player_start == 'P' # capture both lower and upper case answers
-      return comp_setup_ships
+      return Computer.new
 
     # system "clear"
 
@@ -56,6 +56,86 @@ class BattleShip
     new_turn
     puts "Game Over!"
     end
+  end
+
+
+
+    # def player_setup_sub
+    #   submarine = Ship.new("Submarine", 2)
+    #   loop do
+    #     player_selection = gets.chomp
+    #     submarine_coordinates = player_selection.split(",")
+    #     submarine_coordinates = submarine_coordinates.map do |coordinate|
+    #       coordinate.strip()
+    #     end
+    #     if @player_board.valid_placement?(submarine, submarine_coordinates)
+    #       @player_board.place(submarine, submarine_coordinates)
+    #       break
+    #     end
+    #     puts "Those are invalid coordinates. Please try again:"
+    #   end
+    # end
+
+    def new_turn
+      system 'clear'
+      turn = Turn.new(comp_player, person_player)
+      turn.comp_shot
+      # sleep(0.8)
+      puts "=============COMPUTER BOARD============="
+      puts "#{@comp_board.render}"
+      puts "==============PLAYER BOARD=============="
+      puts "#{@player_board.render(true)}"
+      puts "Enter coordinate to fire upon"
+      player_selection = gets.chomp
+      turn.player_shot(player_selection)
+      # sleep(0.8)
+      if @comp_player.has_lost?
+        puts "=============COMPUTER BOARD============="
+        puts "#{@comp_board.render}"
+        puts "==============PLAYER BOARD=============="
+        puts "#{@player_board.render(true)}"
+        p "You won!"
+        # sleep(5.0)
+        self.start
+      elsif @person_player.has_lost?
+        puts "=============COMPUTER BOARD============="
+        puts "#{@comp_board.render}"
+        puts "==============PLAYER BOARD=============="
+        puts "#{@player_board.render(true)}"
+        p "Computer won!"
+        # sleep(5.0)
+        self.start
+      else
+        new_turn
+      end
+    end
+
+    # def comp_setup_ships
+    #   comp_cruiser = Ship.new("Cruiser", 3)
+    #   comp_submarine = Ship.new("Submarine", 2)
+    #   loop do
+    #     cruiser_coordinates = []
+    #     until cruiser_coordinates.length == comp_cruiser.length do
+    #       cruiser_coordinates << @comp_board.cells.keys.sample
+    #     end
+    #     if @comp_board.valid_placement?(comp_cruiser, cruiser_coordinates)
+    #       @comp_board.place(comp_cruiser, cruiser_coordinates)
+    #       break
+    #     end
+    #   end
+    #   loop do
+    #     submarine_coordinates = []
+    #     until submarine_coordinates.length == comp_submarine.length do
+    #       submarine_coordinates << @comp_board.cells.keys.sample
+    #     end
+    #     if @comp_board.valid_placement?(comp_submarine, submarine_coordinates)
+    #       @comp_board.place(comp_submarine, submarine_coordinates)
+    #       break
+    #     end
+    #   end
+    # end
+
+
   end
 
 

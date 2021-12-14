@@ -16,7 +16,7 @@ RSpec.describe Turn do
       it 'exists' do
 
         expect(turn).to be_a(Turn)
-        binding.pry
+        # binding.pry
       end
     end
   end
