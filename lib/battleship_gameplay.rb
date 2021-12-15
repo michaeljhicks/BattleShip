@@ -10,11 +10,12 @@ class Battleship
 
   def initialize
     @player_board = Board.new
-    @comp_board = Board.new
-    @computer = Computer.new(@computer_board)
-    @player = Player.new(@player_board)
-    @cruiser = Ship.new('cruiser', 3)
-    @submarine = Ship.new('submarine', 2)
+     @comp_board = Board.new
+     @computer = Computer.new(@computer_board)
+     @player = Player.new(@player_board)
+    # @cruiser = Ship.new('cruiser', 3)
+    # @submarine = Ship.new('submarine', 2)
+
   end
 
 
@@ -33,9 +34,17 @@ class Battleship
   def game_play #set up boards, player Computer
     @computer.place_cruiser # computer sets up board
     @computer.place_submarine
-    @player.ship_placement # player sets up board
-    @turn = Turn.new
-    @turn.show_boards
+    @player.ship_placement
+    show_boards # player sets up board
+  end
+
+  def show_boards
+    p "**************COMPUTER BOARD************"
+    p @comp_board.board.render
+    p "***************PLAYER BOARD**************"
+    p @player_board.board.render(true)
+    puts "Take your shot! Enter a coordinate you wish to \n" +
+      "fire upon!"
 
       # computer takes first turn
         # turn confirmed: H, M, S

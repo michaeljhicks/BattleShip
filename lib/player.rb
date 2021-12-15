@@ -64,8 +64,8 @@ class Player
       end
     end
     puts "Here is your board"
-    `say "Lets play, you no talent ass clown mother fucker!"`
+
     puts @player_board.render(true)
-    puts '### THE TITANIC CALLED ###'
+    
   end
 end
