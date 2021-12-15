@@ -21,6 +21,7 @@ class Player
 
     loop do
       cruiser_coordinates = []
+
       @cruiser.length.times do
       coordinate = gets.chomp.upcase
         if @player_board.valid_coordinate?(coordinate) == false
@@ -34,13 +35,16 @@ class Player
       if @player_board.valid_placement?(@cruiser, cruiser_coordinates) == false
         puts "Those coordinates are invalid. Please try again!"
       end
+
       if @player_board.valid_placement?(@cruiser, cruiser_coordinates) == true
         @player_board.place(@cruiser, cruiser_coordinates)
         break
       end
     end
+
     puts "Now let's place the Submarine.\n" +
     "It has 2 cells. Please enter them one at a time."
+
     puts @player_board.render(true)
 
     loop do
@@ -58,14 +62,16 @@ class Player
       if @player_board.valid_placement?(@submarine, submarine_coordinates) == false
         puts "Those coordinates are invalid. Please try again!"
       end
+
       if @player_board.valid_placement?(@submarine, submarine_coordinates) == true
         @player_board.place(@submarine, submarine_coordinates)
         break
       end
     end
+
     puts "Here is your board"
-    `say "Lets play, you no talent ass clown mother fucker!"`
+
     puts @player_board.render(true)
-    puts '### THE TITANIC CALLED ###'
+
   end
 end

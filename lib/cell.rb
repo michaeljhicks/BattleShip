@@ -44,8 +44,7 @@ class Cell
       "M"
     else
       "."
-
     end
-
   end
+
 end
