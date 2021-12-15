@@ -1,7 +1,6 @@
-
 require 'pry'
-
 class Ship
+
   attr_reader :name,
               :length,
               :health
@@ -23,8 +22,7 @@ class Ship
       @sunk = true
     end
   end
-
-
+  
   def hit
     if @health > 0
       @health -= 1

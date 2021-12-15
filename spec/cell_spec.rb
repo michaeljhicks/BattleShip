@@ -7,23 +7,21 @@ RSpec.describe Cell do
     let(:cell) {Cell.new("B4")}
 
     describe 'Iteration I' do
-      it 'exists' do
 
+      it 'exists' do
         expect(cell).to be_a(Cell)
       end
-      it 'has cordinates' do
 
+      it 'has cordinates' do
         expect(cell.coordinate).to eq("B4")
       end
 
       it 'has a ship' do
-
         expect(cell.ship).to eq(nil)
       end
 
       it 'is an empty cell' do
-
-      expect(cell.empty?).to eq(true)
+        expect(cell.empty?).to eq(true)
       end
 
       it 'can have a ship' do
@@ -34,9 +32,11 @@ RSpec.describe Cell do
          expect(cell.ship).to eq(cruiser)
       end
 
-    describe '#fire_upon and #fired_upon?' do
+      describe '#fire_upon and #fired_upon?' do
+
         it 'defaults non-fired upon...' do
           cell = Cell.new("B4")
+
           expect(cell.fired_upon?).to eq(false)
         end
 
@@ -45,9 +45,6 @@ RSpec.describe Cell do
           cruiser = Ship.new("Cruiser", 3)
 
           cell.place_ship(cruiser)
-          # require 'pry' ; binding.pry
-
-
           expect(cell.fired_upon?).to be(false)
         end
 
@@ -56,18 +53,18 @@ RSpec.describe Cell do
           cruiser = Ship.new("Cruiser", 3)
 
           cell.place_ship(cruiser)
-          # require 'pry' ; binding.pry
-
           cell.fire_upon
-
           expect(cell.ship.health).to be(2)
           expect(cell.fired_upon?).to be(true)
         end
       end
+    end
 
       describe '#hits and misses' do
+
           it 'can render a cell' do
             cell_1 = Cell.new("B4")
+
             expect(cell_1).to be_a(Cell)
           end
 
@@ -79,6 +76,7 @@ RSpec.describe Cell do
 
           it 'can render a miss' do
             cell_1 = Cell.new("B4")
+
             cell_1.fire_upon
             expect(cell_1.render).to eq("M")
           end
@@ -87,6 +85,7 @@ RSpec.describe Cell do
             cell_1 = Cell.new("B4")
             cell_2 = Cell.new("C3")
             cruiser = Ship.new("Cruiser", 3)
+
             cell_2.place_ship(cruiser)
             expect(cell_2.render).to eq(".")
             expect(cell_2.render(true)).to eq("S")
@@ -96,6 +95,7 @@ RSpec.describe Cell do
             cell_1 = Cell.new("B4")
             cell_2 = Cell.new("C3")
             cruiser = Ship.new("Cruiser", 3)
+
             cell_2.place_ship(cruiser)
             cell_2.fire_upon
             expect(cell_2.render).to eq("H")
@@ -105,6 +105,7 @@ RSpec.describe Cell do
             cell_1 = Cell.new("B4")
             cell_2 = Cell.new("C3")
             cruiser = Ship.new("Cruiser", 3)
+
             cell_2.place_ship(cruiser)
             cell_2.fire_upon
             expect(cruiser.sunk?).to eq(false)
@@ -114,6 +115,7 @@ RSpec.describe Cell do
             cell_1 = Cell.new("B4")
             cell_2 = Cell.new("C3")
             cruiser = Ship.new("Cruiser", 3)
+
             cell_2.place_ship(cruiser)
             cell_2.fire_upon
             cruiser.hit
@@ -125,17 +127,14 @@ RSpec.describe Cell do
             cell_1 = Cell.new("B4")
             cell_2 = Cell.new("C3")
             cruiser = Ship.new("Cruiser", 3)
+
             cell_2.place_ship(cruiser)
             cell_2.fire_upon
             cruiser.hit
             cruiser.hit
             expect(cell_2.render).to eq("X")
           end
-
-
-
         end
 
-    end
   end
 end
