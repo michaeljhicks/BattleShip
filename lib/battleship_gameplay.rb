@@ -2,7 +2,7 @@ class Battleship
   attr_reader :turn
 
   def initialize
-    @turn = Turn.new
+
   end
 
 
@@ -19,6 +19,15 @@ class Battleship
   end
 
   def game_play
+    #set up boards, player Computer
+
+
+
+    #ask computer and person if ships are sunk, while loop
+    #how to store turn state
+
+    instance variable
+
 
     end
 
