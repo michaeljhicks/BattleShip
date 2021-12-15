@@ -53,19 +53,18 @@ class Board
     end
   end
 
-    def place(ship, coordinates)
-      coordinates.map do |coordinate|
-      @cells[coordinate].place_ship(ship)
+  def place(ship, coordinates)
+    coordinates.map do |coordinate|
+    @cells[coordinate].place_ship(ship)
+  end
 
-    end
-
-    def render(start_ship = false)
-      "  1 2 3 4 \n" +
-      "A #{@cells["A1"].render(start_ship)} #{@cells["A2"].render(start_ship)} #{@cells["A3"].render(start_ship)} #{@cells["A4"].render(start_ship)} \n" +
-      "B #{@cells["B1"].render(start_ship)} #{@cells["B2"].render(start_ship)} #{@cells["B3"].render(start_ship)} #{@cells["B4"].render(start_ship)} \n" +
-      "C #{@cells["C1"].render(start_ship)} #{@cells["C2"].render(start_ship)} #{@cells["C3"].render(start_ship)} #{@cells["C4"].render(start_ship)} \n" +
-      "D #{@cells["D1"].render(start_ship)} #{@cells["D2"].render(start_ship)} #{@cells["D3"].render(start_ship)} #{@cells["D4"].render(start_ship)} \n"
-    end
+  def render(start_ship = false)
+    "  1 2 3 4 \n" +
+    "A #{@cells["A1"].render(start_ship)} #{@cells["A2"].render(start_ship)} #{@cells["A3"].render(start_ship)} #{@cells["A4"].render(start_ship)} \n" +
+    "B #{@cells["B1"].render(start_ship)} #{@cells["B2"].render(start_ship)} #{@cells["B3"].render(start_ship)} #{@cells["B4"].render(start_ship)} \n" +
+    "C #{@cells["C1"].render(start_ship)} #{@cells["C2"].render(start_ship)} #{@cells["C3"].render(start_ship)} #{@cells["C4"].render(start_ship)} \n" +
+    "D #{@cells["D1"].render(start_ship)} #{@cells["D2"].render(start_ship)} #{@cells["D3"].render(start_ship)} #{@cells["D4"].render(start_ship)} \n"
+  end
 
   end
 
