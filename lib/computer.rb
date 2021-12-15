@@ -1,12 +1,3 @@
-require 'pry'
-require './lib/ship'
-require './lib/cell'
-require './lib/turn'
-require './lib/player'
-require './lib/computer'
-require './lib/board'
-require './lib/battleship_gameplay'
-
 class Computer
 
   attr_reader :comp_board,
@@ -67,23 +58,23 @@ end
 
 
 #Hicks brilliant idea that needs to be sent back to the factory and repurposed
-
-@cruiser_placement = [
-  ["A1", "A2", "A3"], #valid vertical placements
-  ["A2", "A3", "A4"],
-  ["B1", "B2", "B3"],
-  ["B2", "B3", "B4"],
-  ["C1", "C2", "C3"],
-  ["C2", "C3", "C4"],
-  ["D1", "D2", "D3"],
-  ["D2", "D3", "D4"],
-
-  ["A1", "B1", "C1"], #valid horizontal placements
-  ["B1", "C1", "D1"],
-  ["A2", "B2", "C2"],
-  ["B2", "C2", "D2"],
-  ["A3", "B3", "C3"],
-  ["B3", "C3", "D3"],
-  ["A4", "B4", "C4"],
-  ["B4", "C4", "D4"]
-]
+#
+# @cruiser_placement = [
+#   ["A1", "A2", "A3"], #valid vertical placements
+#   ["A2", "A3", "A4"],
+#   ["B1", "B2", "B3"],
+#   ["B2", "B3", "B4"],
+#   ["C1", "C2", "C3"],
+#   ["C2", "C3", "C4"],
+#   ["D1", "D2", "D3"],
+#   ["D2", "D3", "D4"],
+#
+#   ["A1", "B1", "C1"], #valid horizontal placements
+#   ["B1", "C1", "D1"],
+#   ["A2", "B2", "C2"],
+#   ["B2", "C2", "D2"],
+#   ["A3", "B3", "C3"],
+#   ["B3", "C3", "D3"],
+#   ["A4", "B4", "C4"],
+#   ["B4", "C4", "D4"]
+# ]
