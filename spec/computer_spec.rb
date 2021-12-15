@@ -1,6 +1,6 @@
 require './lib/ship'
 require './lib/cell'
-require './lib/turn'
+# require './lib/turn'
 require './lib/player'
 require './lib/computer'
 require './lib/board'
