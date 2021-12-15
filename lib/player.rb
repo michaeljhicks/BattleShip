@@ -5,7 +5,7 @@ class Player
   attr_accessor :player_board, :cruiser, :submarine
 
   def initialize(board)
-    @player_board = board
+    @player_board = Board.new
     @cruiser = Ship.new('cruiser', 3)
     @submarine = Ship.new('submarine', 2)
   end
@@ -64,7 +64,7 @@ class Player
       end
     end
     puts "Here is your board"
-    `say "Lets play!"`
+    `say "Lets play, you no talent ass clown mother fucker!"`
     puts @player_board.render(true)
     puts '### THE TITANIC CALLED ###'
   end

@@ -5,7 +5,7 @@ class Computer
               :submarine
 
   def initialize(board)
-    @comp_board = board
+    @comp_board = Board.new
     @cruiser = Ship.new('cruiser', 3)
     @submarine = Ship.new('submarine', 2)
   end

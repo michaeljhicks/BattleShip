@@ -1,8 +1,20 @@
+require './lib/board'
+require './lib/ship'
+require './lib/cell'
+require './lib/player'
+require './lib/computer'
+
+
 class Battleship
-  attr_reader :turn
+  attr_reader :greeting, :game_play
 
   def initialize
-
+    @player_board = Board.new
+    @comp_board = Board.new
+    @computer = Computer.new(@computer_board)
+    @player = Player.new(@player_board)
+    @cruiser = Ship.new('cruiser', 3)
+    @submarine = Ship.new('submarine', 2)
   end
 
 
@@ -18,35 +30,29 @@ class Battleship
     end
   end
 
-  def game_play
-    #set up boards, player Computer
+  def game_play #set up boards, player Computer
+    @computer.place_cruiser # computer sets up board
+    @computer.place_submarine
+    @player.ship_placement # player sets up board
+    @turn = Turn.new
+    @turn.show_boards
 
+      # computer takes first turn
+        # turn confirmed: H, M, S
+    # turn changes to player
+      # player takes first turn
+        # turn confirmed: H, M, S
 
+    # all above: LOOP
+      # loop until submarine + cruiser are sunk XXX
+        # upon one side fully sunk, game then determines winner/loser....then game over
 
     #ask computer and person if ships are sunk, while loop
     #how to store turn state
-
-    instance variable
-
-
-    end
-
-    end_game
   end
-
-  def winning?
-
-  end
-
-  def end_game
-
-    end
-
-
-def new_game
-  battleship_2 = Battleship.new
-  battleship_2.greeting
 end
+
+
 #
 #
 #
