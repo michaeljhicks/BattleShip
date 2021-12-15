@@ -10,8 +10,8 @@ class Battleship
 
   def initialize
     @player_board = Board.new
-     @comp_board = Board.new
-     @computer = Computer.new(@computer_board)
+    @comp_board = Board.new
+     @computer = Computer.new(@comp_board)
      @player = Player.new(@player_board)
     # @cruiser = Ship.new('cruiser', 3)
     # @submarine = Ship.new('submarine', 2)
@@ -40,9 +40,9 @@ class Battleship
 
   def show_boards
     p "**************COMPUTER BOARD************"
-    p @comp_board.board.render
+    puts @computer.comp_board.render
     p "***************PLAYER BOARD**************"
-    p @player_board.board.render(true)
+    puts @player.player_board.render(true)
     puts "Take your shot! Enter a coordinate you wish to \n" +
       "fire upon!"
 
